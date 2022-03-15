@@ -110,7 +110,7 @@ public:
       circleFlags = cv::CALIB_CB_ASYMMETRIC_GRID + cv::CALIB_CB_CLUSTERING;
     }
 
-    params.push_back(CV_IMWRITE_PNG_COMPRESSION);
+    params.push_back(cv::IMWRITE_PNG_COMPRESSION);
     params.push_back(9);
 
     board.resize(boardDims.width * boardDims.height);
@@ -347,14 +347,14 @@ private:
 
         if(mode == COLOR || mode == SYNC)
         {
-          cv::cvtColor(color, colorDisp, CV_GRAY2BGR);
+          cv::cvtColor(color, colorDisp, cv::COLOR_GRAY2BGR);
           cv::drawChessboardCorners(colorDisp, boardDims, pointsColor, foundColor);
           //cv::resize(colorDisp, colorDisp, cv::Size(), 0.5, 0.5);
           //cv::flip(colorDisp, colorDisp, 1);
         }
         if(mode == IR || mode == SYNC)
         {
-          cv::cvtColor(irGrey, irDisp, CV_GRAY2BGR);
+          cv::cvtColor(irGrey, irDisp, cv::COLOR_GRAY2BGR);
           cv::drawChessboardCorners(irDisp, boardDims, pointsIr, foundIr);
           //cv::resize(irDisp, irDisp, cv::Size(), 0.5, 0.5);
           //cv::flip(irDisp, irDisp, 1);

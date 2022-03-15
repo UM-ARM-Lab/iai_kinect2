@@ -222,7 +222,7 @@ private:
     {
       cv::Mat tmp;
       color.convertTo(tmp, CV_8U, 0.02);
-      cv::cvtColor(tmp, color, CV_GRAY2BGR);
+      cv::cvtColor(tmp, color, cv::COLOR_GRAY2BGR);
     }
 
     lock.lock();
@@ -276,7 +276,7 @@ private:
         combine(color, depthDisp, combined);
         //combined = color;
 
-        cv::putText(combined, oss.str(), pos, font, sizeText, colorText, lineText, CV_AA);
+        cv::putText(combined, oss.str(), pos, font, sizeText, colorText, lineText, cv::LINE_AA);
         cv::imshow("Image Viewer", combined);
       }
 
